@@ -1,0 +1,45 @@
+#header-logo {
+	margin: 3px auto;
+	display: block;
+}
+#logo {
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+#nav {
+	list-style-type: none;
+	padding: 0;
+}
+#nav li {
+	padding: 20px 10px;
+	border-bottom: 1px solid #eee;
+}
+#nav li a {
+	text-decoration: none;
+}
+#map-canvas {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	margin: -1em;
+}
+#graphs {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	margin: -1em;
+	background: transparent url('/img/trans.png');
+}
+.x.axis line {
+  shape-rendering: auto;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+.hidden {
+	display: none;
+}

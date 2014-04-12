@@ -25,6 +25,7 @@ class Data extends Model {
         $this->cfg = $this->container->get('config');
         $this->request = $this->container->get('request');
         $this->database = $this->container->get('database');
+        $this->session = $this->container->get('session');
     
     }
     
@@ -103,12 +104,12 @@ class Data extends Model {
         
         $rows = $this->getRows($options);
             
-        return json_encode($rows);
+        return $rows;
     
     }
 
     /**
-     * getStations function.
+     * getStation function.
      * 
      * @access public
      * @param integer $id
@@ -127,9 +128,40 @@ class Data extends Model {
             )
         );
         
-        $rows = $this->getRows($options);
+        $rows = $this->getRow($options);
             
-        return json_encode($rows);
+        return $rows;
+    
+    }
+
+    /**
+     * getClosestStation function.
+     * 
+     * @access public
+     * @param float $lat
+     * @param float $lng
+     * @return array
+     */
+    public function getClosestStation($lat, $lng) {
+        
+        $sql = "SELECT *, 
+                (3963 * ACOS(COS(RADIANS(?)) * COS( RADIANS(station_lat)) * COS(RADIANS(station_lon) - RADIANS(?)) + SIN(RADIANS(?)) * SIN( RADIANS(station_lat)))) AS distance
+                FROM (stations) 
+                HAVING distance < ? 
+                ORDER BY distance 
+                LIMIT 1";
+        
+        $q = $this->database->prepare($sql);
+        $q->execute(array($lat, $lng, $lat, 100));
+
+        $station = $q->fetch(\PDO::FETCH_ASSOC);
+        
+        if (empty($station)) {
+            return '';
+        } else {
+            $this->session->set('closest_station', $station['station_id']);
+            return $station;
+        }
     
     }
 
@@ -171,7 +203,7 @@ class Data extends Model {
         
         $rows = $this->getRows($options);
             
-        return json_encode($rows);
+        return $rows;
     
     }
 

@@ -3,6 +3,7 @@
 namespace Frontend\Controller;
 
 use Blueprint\Controller\Controller;
+use Frontend\Model;
 use Frontend\View;
 
 /**
@@ -20,6 +21,7 @@ class Pages extends Controller {
      */
     public function __construct() {
         
+        $this->model = new Model\Pages();
         $this->view = new View\Index();
         
     }
@@ -37,6 +39,7 @@ class Pages extends Controller {
         
         $this->page = $this->container->get('page');
         
+        $this->model->setContainer($this->container);
         $this->view->setContainer($this->container);
     
     }
@@ -89,7 +92,7 @@ class Pages extends Controller {
     public function aboutAction() {
         
         $vars['content'] = 'About Mapp My Climate';
-        echo $this->view->render("page.php", $vars);
+        echo $this->view->render("about.php", $vars);
     
     }
 

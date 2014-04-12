@@ -12,9 +12,9 @@
 
 <body id="<?php echo $page('body_id', 'default'); ?>">
   <div data-role="page" id="home">
-    <div data-role="header" id="header">
+    <div data-role="header" id="header" data-position="fixed">
       <a href="#navigation" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars ui-btn-icon-notext">Navigation</a>
-      <h1><?php echo $page('h1'); ?></h1>
+      <img src="/img/header-logo" id="header-logo"/>
     </div>
     <div data-role="panel" id="navigation" data-position="left" data-display="overlay">
       <?php include $base . 'inc/navigation.php'; ?>

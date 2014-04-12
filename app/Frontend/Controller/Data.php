@@ -50,8 +50,7 @@ class Data extends Controller {
      */
     public function stationsAction() {
         
-        header('Content-type: application/json');
-        $vars['json'] = $this->model->getStations();
+        $vars['json'] = json_encode($this->model->getStations());
         echo $this->view->render('ajax.php', $vars);
     
     }
@@ -65,8 +64,22 @@ class Data extends Controller {
      */
     public function stationAction($id) {
         
-        header('Content-type: application/json');
-        $vars['json'] = $this->model->getStation($id);
+        $vars['json'] = json_encode($this->model->getStation($id));
+        echo $this->view->render('ajax.php', $vars);
+    
+    }
+
+    /**
+     * closestStationAction function.
+     * 
+     * @access public
+     * @param float $lat
+     * @param float $lng
+     * @return void
+     */
+    public function closestStationAction($lat, $lng) {
+        
+        $vars['json'] = json_encode($this->model->getClosestStation($lat, $lng));
         echo $this->view->render('ajax.php', $vars);
     
     }
@@ -81,8 +94,7 @@ class Data extends Controller {
      */
     public function stationDataAction($id, $field=false) {
         
-        header('Content-type: application/json');
-        $vars['json'] = $this->model->getStationData($id, $field);
+        $vars['json'] = json_encode($this->model->getStationData($id, $field));
         echo $this->view->render('ajax.php', $vars);
     
     }
