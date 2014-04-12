@@ -1,0 +1,6 @@
+.DS_Store
+etc/config.php
+etc/constants.php
+tmp/*
+var/*
+*.sublime-*
