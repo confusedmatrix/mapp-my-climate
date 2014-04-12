@@ -6,7 +6,7 @@ use Blueprint\Controller\Controller;
 use Frontend\View;
 
 /**
- * Index class.
+ * Pages class.
  * 
  * @extends Controller
  */
@@ -50,7 +50,7 @@ class Pages extends Controller {
     public function weatherDataAction() {
         
         $vars['content'] = 'Weather data';
-        echo $this->view->render("index.php", $vars);
+        echo $this->view->render("page.php", $vars);
     
     }
 
@@ -63,7 +63,7 @@ class Pages extends Controller {
     public function climateChangeAction() {
         
         $vars['content'] = 'Climate change';
-        echo $this->view->render("index.php", $vars);
+        echo $this->view->render("page.php", $vars);
     
     }
 
@@ -76,7 +76,7 @@ class Pages extends Controller {
     public function climateEventsAction() {
         
         $vars['content'] = 'Climate events';
-        echo $this->view->render("index.php", $vars);
+        echo $this->view->render("page.php", $vars);
     
     }
 
@@ -89,7 +89,7 @@ class Pages extends Controller {
     public function aboutAction() {
         
         $vars['content'] = 'About Mapp My Climate';
-        echo $this->view->render("index.php", $vars);
+        echo $this->view->render("page.php", $vars);
     
     }
 
