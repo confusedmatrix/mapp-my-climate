@@ -2,9 +2,10 @@ RewriteEngine On
 RewriteBase /
 Options +FollowSymlinks
 
-# Remove trailing slash
+# Add a trailing slash to any non-static files
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)/$ $1 [L,R=301]
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ %{REQUEST_URI}/ [R=301,L]
 
 # Route through index.php
 RewriteCond %{REQUEST_FILENAME} !-d

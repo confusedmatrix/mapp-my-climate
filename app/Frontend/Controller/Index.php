@@ -35,7 +35,6 @@ class Index extends Controller {
     
         parent::setContainer($container);
         
-        $this->page_caching = $this->container->get('page_caching');
         $this->page = $this->container->get('page');
         
         $this->view->setContainer($this->container);
@@ -50,8 +49,7 @@ class Index extends Controller {
      */
     public function indexAction() {
         
-        $vars['content'] = 'index 200';
-        $this->page->h1 = 'Home page';
+        $vars['content'] = 'Home page';
         echo $this->view->render("index.php", $vars);
     
     }
