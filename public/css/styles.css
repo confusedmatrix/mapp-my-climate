@@ -7,6 +7,23 @@
 	margin: 0 auto;
 	display: block;
 }
+#location-form {
+	overflow: hidden;
+}
+#get-location {
+	float: left;
+	margin: 11px 8px 0 0;
+}
+#location-form .ui-input-text {
+	float: left;
+	width: 142px;
+}
+#postcode-search {
+	float: left;
+	width: 50px;
+	padding: 7px 0;
+	margin-left: 8px;
+}
 #nav {
 	list-style-type: none;
 	padding: 0;
@@ -28,20 +45,28 @@
 	height: 100%;
 	position: absolute;
 	width: 100%;
-	margin: -58px -1em -1em;
+	margin: -1em;
 	background: transparent url('/img/trans.png');
 }
-.x.axis line {
-  shape-rendering: auto;
+svg {
+	font-size: 10px;
 }
-
-.line {
+.axis path,
+.axis line {
   fill: none;
   stroke: #000;
-  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.line {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
 }
 .hidden {
 	display: none;
+}
+.clear {
+	clear: both;
 }
 
 @media (max-width: 320px) {

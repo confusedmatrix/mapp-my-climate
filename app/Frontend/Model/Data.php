@@ -166,13 +166,13 @@ class Data extends Model {
     }
 
     /**
-     * getPostcodeStation function.
+     * getClosestStationByPostcode function.
      * 
      * @access public
      * @param string $postcode
      * @return array
      */
-    public function getPostcodeStation($postcode) {
+    public function getClosestStationByPostcode($postcode) {
         
         if (!preg_match('/(^[A-Z]{1,2}[1-9][0-9A-Z]?)/i', trim($postcode), $matches))
             return null;

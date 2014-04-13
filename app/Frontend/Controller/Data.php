@@ -85,6 +85,21 @@ class Data extends Controller {
     }
 
     /**
+     * closestStationByPostcodeAction function.
+     * 
+     * @access public
+     * @param float $lat
+     * @param float $lng
+     * @return void
+     */
+    public function closestStationByPostcodeAction($postcode) {
+        
+        $vars['json'] = json_encode($this->model->getClosestStationByPostcode($postcode));
+        echo $this->view->render('ajax.php', $vars);
+    
+    }
+
+    /**
      * stationDataAction function.
      * 
      * @access public
