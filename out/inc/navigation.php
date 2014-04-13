@@ -3,7 +3,10 @@
     <span id="station_lat" class="hidden"><?php echo !empty($closest_station['station_lat']) ? $closest_station['station_lat'] : '0'; ?></span>
     <span id="station_lng" class="hidden"><?php echo !empty($closest_station['station_lon']) ? $closest_station['station_lon'] : '0'; ?></span>
 
-    <input type="text" name="postcode" id="postcode" placeholder="Post code" /><button>Go</button>
+    <form method="post">
+      <input type="text" name="postcode" id="postcode" placeholder="Post code" required/>
+      <input type="submit" value="Go">
+    </form>
     
     <br />
     

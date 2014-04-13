@@ -1,5 +1,5 @@
 #header-logo {
-	margin: 3px auto;
+	margin: 2px auto 4px;
 	display: block;
 }
 #logo {
@@ -22,13 +22,13 @@
 	height: 100%;
 	position: absolute;
 	width: 100%;
-	margin: -1em;
+	margin: -58px -1em -1em;
 }
 #graphs {
 	height: 100%;
 	position: absolute;
 	width: 100%;
-	margin: -1em;
+	margin: -58px -1em -1em;
 	background: transparent url('/img/trans.png');
 }
 .x.axis line {
@@ -42,4 +42,11 @@
 }
 .hidden {
 	display: none;
+}
+
+@media (max-width: 320px) {
+	#header-logo {
+		position: relative;
+		left: 10px;
+	}	
 }

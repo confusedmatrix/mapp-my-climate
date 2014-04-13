@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  
   var map = $('#map-canvas');
 
   var map_options = {
@@ -8,7 +8,7 @@ $(document).ready(function() {
     disableDefaultUI: true,
     scrollwheel: false
   };
-  
+    
   var google_map = new google.maps.Map(document.getElementById("map-canvas"), map_options);
 
   if ($('#station_name').text() == '') {
@@ -26,7 +26,7 @@ $(document).ready(function() {
         $('#station_lat').text(station.station_lat);
         $('#station_lng').text(station.station_lon);
 
-        google_map.setCenter(new google.maps.LatLng($('#station_lat').text(), $('#station_lng').text()));
+        if (google_map) google_map.setCenter(new google.maps.LatLng($('#station_lat').text(), $('#station_lng').text()));
       });
     },
     function(error) {

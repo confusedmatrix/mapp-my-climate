@@ -166,6 +166,38 @@ class Data extends Model {
     }
 
     /**
+     * getPostcodeStation function.
+     * 
+     * @access public
+     * @param string $postcode
+     * @return array
+     */
+    public function getPostcodeStation($postcode) {
+        
+        if (!preg_match('/(^[A-Z]{1,2}[1-9][0-9A-Z]?)/i', trim($postcode), $matches))
+            return null;
+
+        $options = array(
+            'table' => 'postcodes',
+            'where' => array(
+                array(
+                    'postcode_name',
+                    '=',
+                    $matches[1]
+                )
+            )
+        );
+
+        $postcode = $this->getRow($options);
+
+        if (!$postcode)
+            return null;
+
+        return $this->getClosestStation($postcode['postcode_lat'], $postcode['postcode_lon']);
+    
+    }
+
+    /**
      * getStations function.
      * 
      * @access public

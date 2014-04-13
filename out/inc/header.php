@@ -11,8 +11,8 @@
   <!--<link rel="icon" type="image/png" href="img/favicon.png" />-->
 </head>
 
-<body id="<?php echo $page('body_id', 'default'); ?>">
-  <div data-role="page" id="home">
+<body>
+  <div data-role="page" id="<?php echo $page('body_id', 'default'); ?>">
     <div data-role="header" id="header" data-position="fixed">
       <a href="#navigation" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars ui-btn-icon-notext">Navigation</a>
       <img src="/img/header-logo.png" id="header-logo"/>

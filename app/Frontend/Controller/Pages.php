@@ -52,6 +52,7 @@ class Pages extends Controller {
      */
     public function weatherDataAction() {
         
+        $this->page->body_id = 'map-page';
         $vars['content'] = 'Weather data';
         echo $this->view->render("page.php", $vars);
     
@@ -65,6 +66,7 @@ class Pages extends Controller {
      */
     public function climateChangeAction() {
         
+        $this->page->body_id = 'map-page';
         $vars['content'] = 'Climate change';
         echo $this->view->render("page.php", $vars);
     
@@ -78,6 +80,7 @@ class Pages extends Controller {
      */
     public function climateEventsAction() {
         
+        $this->page->body_id = 'map-page';
         $vars['content'] = 'Climate events';
         echo $this->view->render("page.php", $vars);
     
